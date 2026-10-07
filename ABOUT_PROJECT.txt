@@ -1,0 +1,210 @@
+ABOUT THE PROJECT
+=================
+
+Project Name:
+Cricket Win Probability Prediction
+
+Project Type:
+Machine Learning / Classification / Sports Analytics
+
+ABOUT
+-----
+Cricket Win Probability Prediction is a machine learning project designed
+to estimate the probability of a team winning a T20 cricket match from its
+current match situation.
+
+The project simulates cricket match-state data and transforms raw match
+conditions into meaningful machine learning features such as current run
+rate, required run rate, runs required, balls remaining, wickets remaining,
+pitch behavior and recent scoring performance.
+
+A Logistic Regression classifier is then trained to classify the current
+match state into two outcomes:
+
+    Win
+    Lose
+
+The project is designed as an end-to-end machine learning workflow rather
+than only a model-training example.
+
+CORE DATA SCIENCE CONCEPTS
+--------------------------
+This project demonstrates several practical data science concepts:
+
+1. Synthetic Data Generation
+   Cricket match situations are programmatically generated using NumPy
+   and Pandas.
+
+2. Feature Engineering
+   Cricket-specific metrics such as CRR, RRR, runs required and balls
+   remaining are derived from the match state.
+
+3. Data Cleaning
+   Duplicate records are removed and null-value information is checked
+   before model training.
+
+4. Feature Type Detection
+   Numerical and categorical features are identified automatically.
+
+5. Numerical Preprocessing
+   StandardScaler is used to normalize numerical variables.
+
+6. Categorical Encoding
+   OneHotEncoder converts categorical cricket features into a numerical
+   representation suitable for machine learning.
+
+7. Pipeline Architecture
+   ColumnTransformer and Pipeline combine preprocessing and model training
+   into a consistent workflow.
+
+8. Classification
+   Logistic Regression is used for binary win/lose classification.
+
+9. Cross Validation
+   Stratified 5-fold cross validation is used to evaluate model stability
+   across multiple data splits.
+
+10. Model Evaluation
+    Accuracy, Precision, Recall, F1 Score, ROC-AUC, Confusion Matrix and
+    Classification Report are used to evaluate classification performance.
+
+11. Probability Prediction
+    Instead of returning only a win/lose label, the model uses
+    predict_proba() to estimate the probability of winning.
+
+TECHNICAL ARCHITECTURE
+----------------------
+                    Cricket Match State
+                            |
+                            v
+                  Synthetic Data Generation
+                            |
+                            v
+                       Data Cleaning
+                            |
+                            v
+                  Feature / Target Split
+                            |
+                            v
+                 Feature Type Detection
+                     /                                  /                             Numerical            Categorical
+                |                     |
+                v                     v
+        StandardScaler          OneHotEncoder
+                    \                /
+                     \              /
+                      v            v
+                    ColumnTransformer
+                            |
+                            v
+                      ML Pipeline
+                            |
+                            v
+                    Logistic Regression
+                            |
+                 +----------+----------+
+                 |                     |
+                 v                     v
+          Cross Validation       Test Evaluation
+                 |                     |
+                 +----------+----------+
+                            |
+                            v
+                   User Match Situation
+                            |
+                            v
+                   Win Probability
+
+WHY LOGISTIC REGRESSION
+-----------------------
+Logistic Regression is appropriate for this project because the target
+variable contains two classes: win and lose.
+
+It also provides probability estimates through predict_proba(), which is
+particularly useful for a win-probability application.
+
+The model is simple, interpretable and provides a strong baseline for
+comparison with more advanced classification algorithms.
+
+MODEL EVALUATION
+----------------
+The project uses both cross-validation and a separate test set.
+
+Cross-validation helps evaluate how consistently the model performs across
+different subsets of the training data.
+
+The following metrics are calculated:
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC-AUC
+
+A confusion matrix and classification report provide additional detail
+about the win and lose predictions.
+
+PROJECT STRENGTH
+----------------
+The main strength of the project is its complete machine learning workflow.
+
+It demonstrates:
+
+    Data Generation
+        ->
+    Data Cleaning
+        ->
+    Feature Engineering
+        ->
+    Preprocessing
+        ->
+    Model Training
+        ->
+    Cross Validation
+        ->
+    Model Evaluation
+        ->
+    Probability Prediction
+
+This makes the project suitable as a portfolio example for demonstrating
+practical Python, Pandas, NumPy and Scikit-learn skills.
+
+IMPORTANT LIMITATION
+--------------------
+The current project uses synthetic data rather than historical cricket
+match data.
+
+The target Result is generated using predefined cricket rules. Because the
+target is created from these rules, high model performance does not mean
+the model has real-world predictive accuracy.
+
+For a production-level cricket analytics system, the next step would be to
+train and validate the model using real T20/IPL match data.
+
+FUTURE DEVELOPMENT
+------------------
+Potential extensions include:
+
+- Real IPL/T20 match data
+- Ball-by-ball historical data
+- Team strength features
+- Player performance features
+- Venue and pitch history
+- Batting and bowling statistics
+- Recent team form
+- Multiple ML model comparison
+- Hyperparameter tuning
+- Probability calibration
+- Streamlit dashboard
+- Real-time match data integration
+- Prediction history and analytics
+
+PORTFOLIO DESCRIPTION
+---------------------
+A Python-based cricket analytics machine learning project that predicts
+T20 match win probability using Logistic Regression. The system performs
+feature engineering on cricket match-state variables, applies numerical
+scaling and categorical encoding through a Scikit-learn Pipeline, evaluates
+model performance using stratified 5-fold cross validation and multiple
+classification metrics, and generates probability-based predictions for
+new match situations.
